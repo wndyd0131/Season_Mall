@@ -7,14 +7,36 @@ ul {
   margin: 10px;
 }
 
-.card_list{
+.box{
   width: 1500px;
   height: 1420px;
   margin: 0px auto;
-  border: 2px solid pink;
+  border: 2px solid orange;
   justify-content:right;
   flex-wrap: nowrap;
 }
+
+.empty_msg{
+  margin-top: 50%;
+  text-align:center;
+}
+
+.page{
+  margin-left: 40%;
+}
+
+.login_button{
+  margin-left: 73%;
+  position:absolute;
+  top: 5px;
+}
+
+.search_box{
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
 #butt{
   text-align:center;
   margin-top:10px;
