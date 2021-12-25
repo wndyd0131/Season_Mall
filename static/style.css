@@ -26,7 +26,7 @@ ul {
 }
 
 .login_button{
-  margin-left: 73%;
+  margin-left: 65%;
   position:absolute;
   top: 5px;
 }
@@ -42,7 +42,7 @@ ul {
   margin-top:10px;
   margin-bottom:10px;
 }
-.card {
+/* .card {
   margin:21px;
   float:left;
   width: 200px;
@@ -51,11 +51,33 @@ ul {
 }
 .card-title {
   text-align: center;
+} */
+.manage_box{
+  display:flex;
+  margin-top: 20%;
 }
-.login-form{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  margin-top: 300px;
+.createBox{
+  border: 2px solid rgb(67, 148, 84);
+  width: 250px;
+  height: 170px;
+  margin-left: 35%;
+  border-radius: 10%;
+  background-color: rgb(67, 148, 84);
+  text-align: center;
+}
+.deleteBox{
+  position: absolute;
+  border: 2px solid rgb(218, 117, 117);
+  width: 250px;
+  height: 170px;
+  margin-left: 55%;
+  border-radius: 10%;
+  background-color:rgb(218, 117, 117);
+  text-align:center;
+}
+
+.box_text{
+  margin-top: 25%;
+  font-size: 28px;
+  color:white;
 }

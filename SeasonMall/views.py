@@ -4,3 +4,6 @@ from django.http import HttpResponse
 def index(request):
   msg = 'hi'
   return render(request, 'SeasonMall/index.html', {'message':msg})
+
+def prdt_mngm(request):
+  return render(request, 'SeasonMall/prdt_mngm.html')
