@@ -5,8 +5,9 @@ from .forms import AdditionForm
 from .models import User, Product
 # Create your views here.
 def index(request):
-  msg = 'hi'
-  return render(request, 'SeasonMall/index.html', {'message':msg})
+  product_list = Product.objects.order_by('-created_date')
+  context = {'product_list':product_list}
+  return render(request, 'SeasonMall/index.html', context)
 
 def prdt_mngm(request):
   return render(request, 'SeasonMall/prdt_mngm.html')
@@ -25,4 +26,5 @@ def addition(request): #POST
     form = AdditionForm()
   context = {'form':form}
   return render(request, 'SeasonMall/prdt_form.html', context)
-    
+
+def deletion(request):

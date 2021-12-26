@@ -81,3 +81,9 @@ ul {
   font-size: 28px;
   color:white;
 }
+
+.card {
+  margin:21px;
+  float:left;
+  width: 200px;
+}

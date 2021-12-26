@@ -16,7 +16,7 @@
     <h5 class="border-bottom my-3 pb-2">상품등록</h3>
     <form method="post" class="post-form my-3">
       {% csrf_token %}
-      {% if forms.errors %}
+      {% if form.errors %}
       <div class="alert alert-danger" role="alert">
       {% for field in form %}
         {% if field.errors %}
