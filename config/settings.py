@@ -78,11 +78,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'S_MALLdb',
+        'NAME': 'seasonmall_db',
         'USER': 'root',
         'PASSWORD': '@rjy153101',
         'HOST': 'localhost',
         'PORT': '3306',
+    },
+    'new' : {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME' : 'S_MALLdb',
+      'USER' : 'root',
+      'PASSWORD' : '@rjy153101',
+      'HOST' : 'localhost',
+      'PORT' : '3306',
     }
 }
 
