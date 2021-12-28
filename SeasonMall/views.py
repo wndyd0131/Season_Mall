@@ -1,8 +1,7 @@
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render,redirect,get_object_or_404
 from django.utils import timezone
 from .forms import AdditionForm
-from .models import User, Product
+from .models import Product
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
@@ -35,3 +34,12 @@ def management(request):
   p_list = Product.objects.order_by('-created_date')
   context = {'p_list':p_list}
   return render(request, 'SeasonMall/management.html/', context)
+
+def prdt_delete(request, product_id):
+  post = get_object_or_404(Product, pk=product_id)
+  if request.method == 'POST':
+    post.delete()
+    return redirect('SeasonMall:management')
+  else:
+    context = {'post':post} #?
+  return render(request, 'SeasonMall/prdt_delete.html', context)

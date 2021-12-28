@@ -31,7 +31,7 @@
           <td>{{ product }}</td>
           <td>{{ product.created_date }}</td>
           <td><button>수정</button>
-            <button>삭제</button></td>
+            <a href="{% url 'SeasonMall:prdt_delete' product.id %}"><button>삭제</button></a></td>
         </tr>
         {% endif %}
         {% endfor %}
