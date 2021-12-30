@@ -3,10 +3,14 @@ from django.utils import timezone
 from .forms import AdditionForm
 from .models import Product
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 # Create your views here.
 def index(request):
   p_list = Product.objects.order_by('-created_date')
-  context = {'p_list':p_list}
+  page = request.GET.get('page','1') #페이징 적용
+  paginator = Paginator(p_list, 20)
+  page_obj = paginator.get_page(page)
+  context = {'p_list':page_obj}
   return render(request, 'SeasonMall/index.html', context)
 
 def prdt_mngm(request):
