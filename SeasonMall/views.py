@@ -26,12 +26,13 @@ def addition(request): #POST
       return redirect('SeasonMall:index')
   else: #GET
     form = AdditionForm()
-  context = {'form':form}
+  context = {'form':form, 'flag':0}
   return render(request, 'SeasonMall/prdt_form.html', context)
 
 
 def management(request):
-  p_list = Product.objects.order_by('-created_date')
+  p_list = Product.objects.filter(author_id=request.user)  
+  p_list = p_list.order_by('-created_date')
   context = {'p_list':p_list}
   return render(request, 'SeasonMall/management.html/', context)
 
@@ -43,3 +44,15 @@ def prdt_delete(request, product_id):
   else:
     context = {'post':post} #?
   return render(request, 'SeasonMall/prdt_delete.html', context)
+
+def prdt_modify(request, product_id):
+  post = get_object_or_404(Product, pk=product_id)
+  if request.method == 'POST':
+    form = AdditionForm(request.POST, instance=post)
+    if form.is_valid():
+      form.save()
+      return redirect('SeasonMall:management')
+  else:
+    form = AdditionForm(instance=post)
+    context = {'form':form}
+  return render(request, 'SeasonMall/prdt_form.html', context)
