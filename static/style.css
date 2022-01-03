@@ -88,3 +88,20 @@ ul {
   float:left;
   width: 200px;
 }
+.buy_prdt{
+  justify-content:center;
+  display:flex;
+}
+
+.prdt_info{
+  text-align:center;
+  border: 2px solid orange;
+  width: 500px;
+  height: 800px;
+  border-radius: 10%;
+  margin-left:50px;
+  margin-top:50px;
+}
+.info{
+  margin-top: 60px;
+}

@@ -14,7 +14,7 @@
 <body>
   <div class="container">
     <h5 class="border-bottom my-3 pb-2">상품등록</h3>
-    <form method="post" class="post-form my-3">
+    <form method="post" class="post-form my-3" enctype="multipart/form-data">
       {% csrf_token %}
       {% if form.errors %}
       <div class="alert alert-danger" role="alert">
@@ -37,6 +37,10 @@
         <div class="mb-3">
           <label for="content" class="form-label">내용</label>
           <textarea class="form-control" name = "content" id="content" rows="15">{{ form.content.value|default_if_none:'' }}</textarea>
+        </div>
+        <div>
+          <label for="image" class="form-label">이미지 첨부</label>
+          <input type="file" name="image" id="imageFileOpenInput" accept="image/*"> <!--name 속성은 submit했을 때 전달되는 이름-->
         </div>
         <button type="submit" class="btn btn-primary">등록하기</button>
       </form>

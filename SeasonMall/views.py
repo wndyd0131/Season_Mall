@@ -4,6 +4,7 @@ from .forms import AdditionForm
 from .models import Product
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 # Create your views here.
 def index(request):
   p_list = Product.objects.order_by('-created_date')
@@ -19,18 +20,16 @@ def prdt_mngm(request):
 #@login_required(login_url='common:login')
 def addition(request): #POST
   if request.method == 'POST':
-    form = AdditionForm(request.POST)
+    form = AdditionForm(request.POST, request.FILES) #POST한 내용을 queryset으로 이동
     if form.is_valid(): #if valid
       product = form.save(commit=False)
       product.created_date = timezone.now()
       product.author = request.user
-      #판매자 정보
-      #이미지 정보
       product.save()
       return redirect('SeasonMall:index')
   else: #GET
     form = AdditionForm()
-  context = {'form':form, 'flag':0}
+  context = {'form':form}
   return render(request, 'SeasonMall/prdt_form.html', context)
 
 
@@ -60,3 +59,11 @@ def prdt_modify(request, product_id):
     form = AdditionForm(instance=post)
     context = {'form':form}
   return render(request, 'SeasonMall/prdt_form.html', context)
+
+def prdt_info(request, product_id):
+  product = get_object_or_404(Product, pk=product_id)
+  if request.method == 'POST':
+    return render(request, 'SeasonMall/prdt_info.html')
+  else:
+    context = {'product':product}
+  return render(request, 'SeasonMall/prdt_info.html', context)

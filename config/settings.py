@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -130,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [ #static files directory 위치 설정
   BASE_DIR / 'static'
 ]
 
@@ -143,3 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 #로그아웃 시 이동하는 URL
 LOGOUT_REDIRECT_URL = '/'
+
+#이미지를 넣기 위해 필요
+MEDIA_URL = '/media/' #SeasonMall/media/파일경로로 나타내기
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #MEDIA_ROOT에 파일이 저장됨 (upload_to 경로가 없으면 MEDIA_ROOT의 경로에 저장됨)
