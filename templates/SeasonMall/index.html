@@ -8,6 +8,7 @@
 <div class="box">
   {% if p_list %}
   {% for product in p_list %}
+  <div class="card_box">
   <a href="{% url 'SeasonMall:prdt_info' product.id %}">
     <div class="card" style="width: 18rem;">
       {% if product.image %}
@@ -20,6 +21,7 @@
       </div>
     </div>
   </a>
+</div>
   {% endfor %}
   {% else %}
   <div class="empty_msg" style="color:gray;">

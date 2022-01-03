@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'SeasonMall.apps.SeasonmallConfig',
     'common.apps.CommonConfig',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,8 @@ LOGOUT_REDIRECT_URL = '/'
 #이미지를 넣기 위해 필요
 MEDIA_URL = '/media/' #SeasonMall/media/파일경로로 나타내기
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #MEDIA_ROOT에 파일이 저장됨 (upload_to 경로가 없으면 MEDIA_ROOT의 경로에 저장됨)
+
+#결제를 위해 필요 (stripe 사용)
+STRIPE_PUBLIC_KEY = 'pk_test_51KDr9GLvtI4Ww06EqhkEjq8ppEdMNRYhbKzXTCVzAXA1XXoPeFsSw06IM1HHYUDE4j2R2xyuxFhSj2Khn5sd0lv3001M91j9Hr'
+STRIPE_SECRET_KEY = 'sk_test_51KDr9GLvtI4Ww06ElzpTUvOjek0eOlNjfOwUExkp3TvOQymt4kcaxheQ4iVZHEXOT73tCx2OfEFItRZlPJLQL5XQ00xlyQn2C6'
+

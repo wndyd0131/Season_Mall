@@ -5,11 +5,13 @@ from .models import Product
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse
+import stripe
+from django.conf import settings
 # Create your views here.
 def index(request):
   p_list = Product.objects.order_by('-created_date')
   page = request.GET.get('page','1') #페이징 적용
-  paginator = Paginator(p_list, 20)
+  paginator = Paginator(p_list, 16)
   page_obj = paginator.get_page(page)
   context = {'p_list':page_obj}
   return render(request, 'SeasonMall/index.html', context)
