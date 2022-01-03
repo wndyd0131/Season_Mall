@@ -51,7 +51,7 @@ def prdt_delete(request, product_id):
 def prdt_modify(request, product_id):
   post = get_object_or_404(Product, pk=product_id)
   if request.method == 'POST':
-    form = AdditionForm(request.POST, instance=post)
+    form = AdditionForm(request.POST, request.FILES, instance=post)
     if form.is_valid():
       form.save()
       return redirect('SeasonMall:management')

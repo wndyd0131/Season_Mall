@@ -1,10 +1,24 @@
-.topnav {
-  text-align: center;
-}
-
 ul {
   list-style-type: none;
   margin: 10px;
+}
+
+a,a:link,a:visited,a:active{
+  text-decoration:none;
+  color:inherit;
+}
+
+a:hover{
+  color:gray;
+}
+
+.createBox:hover, .deleteBox:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+
+.topnav {
+  text-align: center;
 }
 
 .box{
@@ -42,16 +56,10 @@ ul {
   margin-top:10px;
   margin-bottom:10px;
 }
-/* .card {
-  margin:21px;
-  float:left;
-  width: 200px;
+.card {
+  text-align:center;
 }
-.card-body{
-}
-.card-title {
-  text-align: center;
-} */
+
 .manage_box{
   display:flex;
   margin-top: 20%;
@@ -104,4 +112,8 @@ ul {
 }
 .info{
   margin-top: 60px;
+}
+
+.empty_border{
+  border: 1px solid black;
 }

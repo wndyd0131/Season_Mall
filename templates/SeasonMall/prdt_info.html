@@ -13,13 +13,22 @@
   </head>
 
   <body>
+    <a href="{% url 'SeasonMall:index' %}">홈</a>
     <div class="buy_prdt">
+        {% if product.image %}
         <img src="{{ product.image.url }}" style="margin-top:200px;" width=400 height=400/>
+        {% else %}
+        <img src="/media/uploads/no_image.png" style="margin-top:200px;" width=400 height=400/>
+        {% endif %}
         <div class="prdt_info">
           <div class="info">
             <h2>{{ product.name }}</h2>
             <br>
+            {% if product.image %}
             <img src="{{ product.image.url }}" width=300 height=300/>
+            {% else %}
+            <img src="/media/uploads/no_image.png" width=300 height=300/>
+            {% endif %}
             <p>내용: {{ product.content }}</p>
             <br>
             <h4>가격: {{ product.price }}원</h4>
