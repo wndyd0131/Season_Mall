@@ -7,13 +7,18 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 import stripe
 from django.conf import settings
+from django.db.models import Q
 # Create your views here.
 def index(request):
   p_list = Product.objects.order_by('-created_date')
+  kw = request.GET.get('kw', '')
+  if kw:
+    p_list = p_list.filter(Q(name__icontains=kw))
+
   page = request.GET.get('page','1') #페이징 적용
   paginator = Paginator(p_list, 16)
   page_obj = paginator.get_page(page)
-  context = {'p_list':page_obj}
+  context = {'p_list':page_obj, 'page':page, 'kw':kw}
   return render(request, 'SeasonMall/index.html', context)
 
 def prdt_mngm(request):
