@@ -70,7 +70,8 @@ def prdt_modify(request, product_id):
 def prdt_info(request, product_id):
   product = get_object_or_404(Product, pk=product_id)
   if request.method == 'POST':
-    return render(request, 'SeasonMall/prdt_info.html')
+    context = {'prod':product}
+    return render(request, 'SeasonMall/prdt_info.html', context)
   else:
     context = {'product':product}
   return render(request, 'SeasonMall/prdt_info.html', context)
