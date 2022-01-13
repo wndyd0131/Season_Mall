@@ -120,3 +120,8 @@ a:hover{
 .empty_border{
   border: 1px solid black;
 }
+
+.purc_btn{
+  margin-top: 50px;
+  position: absolute;
+}

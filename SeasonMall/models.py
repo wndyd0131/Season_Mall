@@ -11,6 +11,7 @@ class Product(models.Model):
   content = models.TextField()
   created_date = models.DateTimeField()
   image = models.ImageField(blank=True, null=True, upload_to='uploads/')
+  like = models.IntegerField(default=0)
   author = models.ForeignKey("auth.User", on_delete=models.CASCADE, null = True)
   
   def __str__(self):
