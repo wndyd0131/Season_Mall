@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% include 'navbar.html' %}
 {% block content %}
 <form id="searchForm" method='get' action="{% url 'index' %}" name="kw">
 <div class="search_box">
@@ -21,7 +22,7 @@
       <img src="/media/uploads/no_image.png" class="card-img-top" alt="...">
       {% endif %}
       <div class="card-body">
-        <p class="card-text">{{ product.name }}</p>
+        <p class="card-text">상품명: {{ product.name }}<br>판매자: {{ product.author }}<br><span id="card_like"><i class="bi bi-hand-thumbs-up"></i> {{ product.like_count }}</span></p>
       </div>
     </div>
   </a>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'SeasonMall.apps.SeasonmallConfig',
     'common.apps.CommonConfig',
     'stripe',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
+
+INTERNAL_IPS = ('127.0.0.1')
 
 ROOT_URLCONF = 'config.urls'
 
@@ -153,3 +157,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #MEDIA_ROOT에 파일이 저장됨 
 STRIPE_PUBLIC_KEY = 'pk_test_51KDr9GLvtI4Ww06EqhkEjq8ppEdMNRYhbKzXTCVzAXA1XXoPeFsSw06IM1HHYUDE4j2R2xyuxFhSj2Khn5sd0lv3001M91j9Hr'
 STRIPE_SECRET_KEY = 'sk_test_51KDr9GLvtI4Ww06ElzpTUvOjek0eOlNjfOwUExkp3TvOQymt4kcaxheQ4iVZHEXOT73tCx2OfEFItRZlPJLQL5XQ00xlyQn2C6'
 
+AUTH_USER_MODEL = 'SeasonMall.User'

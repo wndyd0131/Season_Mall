@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Season Mall</a>
+    <a class="navbar-brand" href="{% url 'SeasonMall:index' %}">Season Mall</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,21 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#">내 정보</a>
         </li>
-        
-        <li class="prdt_mngm nav-item">
-          {% if user.is_authenticated %}
-          <a href="{% url 'SeasonMall:prdt_mngm' %}"><button class="btn btn-primary">상품 등록/삭제</button></a>
-          {% endif %}
-        </li>
 
         <li class="nav-item">
           {% if user.is_authenticated %}
-          <div class="login_button">
-            <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }}<br>(로그아웃)</a>
+          <div class="login_button d-flex">
+            <a href="{% url 'SeasonMall:prdt_mngm' %}" style="width:150px;margin-top:10px;"><button class="btn btn-primary">상품 등록/삭제</button></a>
+            <a class="nav-link" href="{% url 'common:logout' %}" style="width:150px;margin-left:10px;">{{ user.name }}<br>(로그아웃)</a>
           </div>
           {% else %}
           <div class="login_button">
-            <a class="nav-link" href="{% url 'common:login' %}">로그인</a>
+            <a class="nav-link" href="{% url 'common:login' %}" style="margin-left:150px;">로그인</a>
           </div>
           {% endif %}
         </li>

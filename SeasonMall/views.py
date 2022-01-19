@@ -8,6 +8,7 @@ from django.http import HttpResponse
 import stripe
 from django.conf import settings
 from django.db.models import Q
+import json
 # Create your views here.
 def index(request):
   p_list = Product.objects.order_by('-created_date')
@@ -75,3 +76,21 @@ def prdt_info(request, product_id):
   else:
     context = {'product':product}
   return render(request, 'SeasonMall/prdt_info.html', context)
+
+
+@login_required(login_url='common:login')
+def product_like(request, product_id):
+  product = get_object_or_404(Product, pk=product_id)
+  user = request.user
+  
+  if user in product.like.all():
+    product.like.remove(user)
+    product.like_count -= 1
+    product.save()
+  else:
+    product.like.add(user)
+    product.like_count += 1
+    product.save()
+  return redirect('SeasonMall:prdt_info', product_id=product.id)
+  # return HttpResponse(json.dumps(context), content_type='application/json')
+  #json.dumps --> json의 사전으로 만듦

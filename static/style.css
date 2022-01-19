@@ -1,3 +1,6 @@
+body{
+}
+
 ul {
   list-style-type: none;
   margin: 10px;
@@ -13,7 +16,8 @@ a:hover{
 }
 
 .createBox:hover, .deleteBox:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  box-shadow: 0 5px 11px rgba(33,33,33,.2);
+  transform: scale(1.1)
 }
 
 
@@ -36,14 +40,24 @@ a:hover{
 }
 
 .page{
-  margin-left: 40%;
+  position:absolute;
+  margin-left:45%;
+}
+
+.like:hover{
+  cursor:pointer;
 }
 
 .login_button{
-  margin-left: 65%;
+  margin-left: 68%;
   position:absolute;
   top: 5px;
 }
+
+.prdt_mngm{
+  position:fixed;
+}
+
 
 .search_box{
   text-align:center;
@@ -60,12 +74,15 @@ a:hover{
 .card {
   margin:21px;
   float:left;
-  text-align:center;
 }
 
 .card_box{
   margin-left: 90px;
   margin-top: 70px;
+}
+
+#card_like{
+  margin-left: 85%;
 }
 
 .manage_box{
@@ -81,6 +98,7 @@ a:hover{
   border-radius: 10%;
   background-color: rgb(67, 148, 84);
   text-align: center;
+  transition: transform 300ms;
 }
 .deleteBox{
   position: absolute;
@@ -91,6 +109,7 @@ a:hover{
   border-radius: 10%;
   background-color:rgb(218, 117, 117);
   text-align:center;
+  transition: 300ms;
 }
 
 .box_text{
@@ -122,6 +141,5 @@ a:hover{
 }
 
 .purc_btn{
-  margin-top: 50px;
-  position: absolute;
+  margin-top: 10px;
 }
