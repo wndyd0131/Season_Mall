@@ -32,7 +32,7 @@
             {% else %}
             <img src="/media/uploads/no_image.png" width=300 height=300/>
             {% endif %}
-            <p style="margin-top:50px;">판매자: {{ user.identifier }}</p>
+            <p style="margin-top:30px;">판매자: {{ user.identifier }}</p>
             <p style="margin-top:50px;">내용: {{ product.content }}</p>
             <br>
             <h4 style="margin-top:50px;" id="p_price" data-price="{{ product.price }}">가격: {{ product.price }}원</h4>
@@ -41,7 +41,7 @@
               <input style="margin-top:10px;"id="pay_button" class="btn btn-primary" type="button" value="구매하기">
             </div>
             <br>
-            <a id="{{ product.id }}" class="like" data-uri="{% url 'SeasonMall:product_like' product.id %}">
+            <a id="info_like" class="like" data-uri="{% url 'SeasonMall:product_like' product.id %}">
               <i class="bi bi-hand-thumbs-up"></i>
               <br>좋아요 {{ product.like_count }}개
             </a>
