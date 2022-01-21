@@ -28,11 +28,11 @@
             <h2 id="p_name" data-name="{{ product.name }}">{{ product.name }}</h2>
             <br>
             {% if product.image %}
-            <img src="{{ product.image.url }}" width=300 height=300/>
+            <img src="{{ product.image.url }}" width=300 height=300 style="border-radius:10%;"/>
             {% else %}
             <img src="/media/uploads/no_image.png" width=300 height=300/>
             {% endif %}
-            <p style="margin-top:30px;">판매자: {{ user.identifier }}</p>
+            <p style="margin-top:30px;">판매자: {{ product.author }}</p>
             <p style="margin-top:50px;">내용: {{ product.content }}</p>
             <br>
             <h4 style="margin-top:50px;" id="p_price" data-price="{{ product.price }}">가격: {{ product.price }}원</h4>

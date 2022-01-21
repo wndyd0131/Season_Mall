@@ -126,11 +126,12 @@ a:hover{
 .prdt_info{
   text-align:center;
   border: 2px solid orange;
-  width: 500px;
+  width: 1400px;
   height: 900px;
-  border-radius: 10%;
+  border-radius: 20%;
   margin-left:50px;
   margin-top:50px;
+  margin-bottom:40px;
 }
 .info{
   margin-top: 60px;
