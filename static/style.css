@@ -143,3 +143,33 @@ a:hover{
 .purc_btn{
   margin-top: 10px;
 }
+
+.frame{
+  justify-content:center;
+  display:flex;
+}
+
+.profile_box{
+  border: 3px solid orange;
+  width: 1700px;
+  height: 1000px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom:40px;
+}
+.profile_title{
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.profile_text{
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.profile_bio{
+  border: 1px solid black;
+  width: 600px;
+  height: 260px;
+}

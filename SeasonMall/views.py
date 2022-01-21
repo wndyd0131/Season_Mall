@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.utils import timezone
 from .forms import AdditionForm
 from .models import Product
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse
@@ -9,6 +10,8 @@ import stripe
 from django.conf import settings
 from django.db.models import Q
 import json
+
+User = get_user_model()
 # Create your views here.
 def index(request):
   p_list = Product.objects.order_by('-created_date')
@@ -94,3 +97,8 @@ def product_like(request, product_id):
   return redirect('SeasonMall:prdt_info', product_id=product.id)
   # return HttpResponse(json.dumps(context), content_type='application/json')
   #json.dumps --> json의 사전으로 만듦
+  
+def myprofile(request):
+  me = request.user
+  context = {'me':me}
+  return render(request, 'SeasonMall/myprofile.html', context)

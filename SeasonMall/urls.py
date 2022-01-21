@@ -14,4 +14,5 @@ urlpatterns = [
     path('prdt_modify/<int:product_id>/', views.prdt_modify, name='prdt_modify'),
     path('prdt_info/<int:product_id>/', views.prdt_info, name = 'prdt_info'),
     path('like/<int:product_id>/', views.product_like, name="product_like"),
+    path('myprofile/', views.myprofile, name='myprofile'),
 ]

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div "frame">
+  <div class="profile_box">
+    <div class="profile_title">
+      <h1>내 프로필</h1>
+    </div>
+    <div class="profile_text">
+      <img src="#" width=250 height=250 style="margin-bottom:30px;">
+      <h3>아이디: {{ me.identifier }}</h3><br>
+      <h3>이름: {{ me.name }}</h3><br>
+      <h3>이메일: {{ me.email }}</h3><br>
+      <h3>생일: {{ me.date_of_birth }}</h3><br>
+      <h4>하고 싶은 말:</h4>
+      <div class="profile_bio">
+        <p style="font-size: 18px; margin-left: 5px; margin-top: 5px;">{{ me.bio }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
