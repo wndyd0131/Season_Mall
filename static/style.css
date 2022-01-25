@@ -159,6 +159,16 @@ a:hover{
   margin-right:auto;
   margin-bottom:40px;
 }
+
+.purchase_box{
+  border: 3px solid orange;
+  width: 900px;
+  height: 1000px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom:40px;
+}
 .profile_title{
   margin-top: 30px;
   margin-left: 40px;

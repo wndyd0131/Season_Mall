@@ -77,6 +77,10 @@ class Product(models.Model):
   
   def __str__(self):
     return self.name
+
+class P_record(models.Model):
+  merchant_uid = models.BigAutoField(primary_key=True)
   
 class BuyList(models.Model):
   product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+  

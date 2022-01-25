@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="frame">
+  <div class="purchase_box">
+    <h1>구매할 물품<h1>
+    {% if product.image %}
+    <img src="{{ product.image.url }}" width=300 height=300 style="border-radius:10%;"/>
+    {% else %}
+    <img src="/media/uploads/no_image.png" width=300 height=300/>
+    {% endif %}
+    <h1>배송 정보 입력</h1>
+    <form method="post" class="post-form" action="{% url 'SeasonMall:payment' %}">
+      {% csrf_token %}
+      {% include "form_errors.html" %}
+      <div class="form-group">
+        <label for="name">받을 분</label>
+        <input type="text" class="form-control" name="name" id="name"
+              value="{{ form.name.value|default_if_none:'' }}">
+      </div>
+      <div class="form-group">
+        <label for="addr">배송주소</label>
+        <input type="text" class="form-control" name="addr" id="addr"
+              value="{{ form.addr.value|default_if_none:'' }}">
+      </div>
+      <div class="form-group">
+        <label for="tel">휴대폰 번호</label>
+        <input type="text" class="form-control" name="tel" id="tel"
+              value="{{ form.tel.value|default_if_none:'' }}">
+      </div>
+      <div class="form-group">
+        <label for="email">이메일</label>
+        <input type="text" class="form-control" name="email" id="email"
+              value="{{ form.email.value|default_if_none:'' }}">
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">결제하기</button>
+  </div>
+</div>
+{% endblock %}

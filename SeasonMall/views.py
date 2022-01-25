@@ -102,3 +102,8 @@ def myprofile(request):
   me = request.user
   context = {'me':me}
   return render(request, 'SeasonMall/myprofile.html', context)
+
+def payment(request):
+  if request.method == "POST":
+    pass
+  return render(request, 'SeasonMall/payment.html')
