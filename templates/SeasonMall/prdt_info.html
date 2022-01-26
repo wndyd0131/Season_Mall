@@ -38,7 +38,7 @@
             <h4 style="margin-top:50px;" id="p_price" data-price="{{ product.price }}">가격: {{ product.price }}원</h4>
             <br>
             <div class="purc_btn">
-              <input style="margin-top:10px;"id="pay_button" class="btn btn-primary" type="button" value="구매하기">
+              <a href="{% url 'SeasonMall:payment' product.id %}"><input style="margin-top:10px;" class="btn btn-primary" type="button" value="구매하기"></a>
             </div>
             <br>
             <a id="info_like" class="like" data-uri="{% url 'SeasonMall:product_like' product.id %}">
@@ -46,7 +46,6 @@
               <br>좋아요 {{ product.like_count }}개
             </a>
             
-            {% comment %} {{ product.like }} {% endcomment %}
           </div>
         </div>
     </div>
@@ -73,52 +72,4 @@
       location.href = $(this).data('uri');
     })
   </script>
-  <script>
-    var price = document.querySelector('#p_price');
-    price = price.dataset.price;
-    var nm = document.querySelector('#p_name');
-    nm = nm.dataset.name
-    var IMP = window.IMP;
-    IMP.init('iamport')
-    $('#pay_button').click(function(){
-      IMP.request_pay({
-        pg : 'html5_inicis',
-        amount : price,
-        pay_method : 'card',
-        merchant_uid : 'merchant_'+new Date().getTime(),
-        buyer_name : '홍길동',
-        buyer_tel : '010-8481-9700',
-        buyer_email : "test@gmail.com",
-        buyer_addr : "서울특별시 동소문동7가",
-        buyer_postcode : "12345",
-        digital : true,
-        name : nm
-      }, function(rsp) {
-        console.log(rsp);
-        //결제 후 호출되는 callback함수
-        if (rsp.success) { //결제 성공
-          jQuery.ajax({
-            url: "{서버의 결제 정보를 받는 endpoint}",
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            data: {
-              imp_uid: rsp.imp_uid,
-              merchant_uid: rsp.merchant_uid
-            }
-          }).done(function(data){
-            
-          })
-          var msg = '결제가 완료되었습니다.';
-          msg += '고유ID : ' + rsp.imp_uid;
-          msg += '상점 거래ID : ' + rsp.merchant_uid;
-          msg += '결제 금액 : ' + rsp.paid_amount;
-          msg += '카드 승인번호 : ' + rsp.apply_num;
-        } else {
-          alert('결제실패 : ' + response.error_msg);
-        }
-      })
-    });
-
-  </script>
-
 </html>

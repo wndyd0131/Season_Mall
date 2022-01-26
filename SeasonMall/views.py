@@ -103,7 +103,8 @@ def myprofile(request):
   context = {'me':me}
   return render(request, 'SeasonMall/myprofile.html', context)
 
-def payment(request):
-  if request.method == "POST":
-    pass
-  return render(request, 'SeasonMall/payment.html')
+@login_required(login_url='common:login')
+def payment(request, product_id):
+  product = get_object_or_404(Product, pk=product_id)
+  context = {'product':product}
+  return render(request, 'SeasonMall/payment.html', context)

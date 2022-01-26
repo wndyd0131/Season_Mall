@@ -15,5 +15,5 @@ urlpatterns = [
     path('prdt_info/<int:product_id>/', views.prdt_info, name = 'prdt_info'),
     path('like/<int:product_id>/', views.product_like, name="product_like"),
     path('myprofile/', views.myprofile, name='myprofile'),
-    path('payment/', views.payment, name='payment'),
+    path('payment/<int:product_id>/', views.payment, name='payment'),
 ]
