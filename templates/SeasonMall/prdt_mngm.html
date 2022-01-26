@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>상품 관리 페이지</title>
 </head>
-<body>
+<body style="background-color:rgb(246, 215, 157)">
   <div class="manage_box">
     
     <a href = "{% url 'SeasonMall:addition' %}">
@@ -22,7 +22,7 @@
     </a>
     
     <a href = "{% url 'SeasonMall:management' %}">
-    <div class="deleteBox">
+    <div class="modifyBox">
       <div class='box_text'>상품 관리</div>
     </div>
     </a>

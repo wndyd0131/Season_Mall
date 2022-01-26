@@ -15,7 +15,7 @@ a:hover{
   color:gray;
 }
 
-.createBox:hover, .deleteBox:hover{
+.createBox:hover, .modifyBox:hover{
   box-shadow: 0 5px 11px rgba(33,33,33,.2);
   transform: scale(1.1)
 }
@@ -29,7 +29,7 @@ a:hover{
   width: 1500px;
   height: 1420px;
   margin: 0px auto;
-  border: 2px solid orange;
+  border: 2px solid beige;
   justify-content:center;
   flex-wrap: nowrap;
 }
@@ -100,7 +100,7 @@ a:hover{
   text-align: center;
   transition: transform 300ms;
 }
-.deleteBox{
+.modifyBox{
   position: absolute;
   border: 2px solid rgb(218, 117, 117);
   width: 250px;
@@ -125,7 +125,6 @@ a:hover{
 
 .prdt_info{
   text-align:center;
-  border: 2px solid orange;
   width: 1400px;
   height: 900px;
   border-radius: 20%;
@@ -151,7 +150,7 @@ a:hover{
 }
 
 .profile_box{
-  border: 3px solid orange;
+  border: 3px solid beige;
   width: 1700px;
   height: 1000px;
   margin-top: 30px;
