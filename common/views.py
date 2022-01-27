@@ -6,7 +6,7 @@ User = get_user_model()
 
 def signup(request):
   if request.method == "POST":
-    form = UserForm(request.POST)
+    form = UserForm(request.POST, request.FILES)
     if form.is_valid():
       user = form.save()
       # username = form.cleaned_data.get('username')

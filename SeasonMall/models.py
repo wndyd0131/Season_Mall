@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager, AbstractBa
 # Create your models here.
 
 class UserManager(BaseUserManager):
-    def create_user(self, name, identifier, email, date_of_birth, bio, password=None):
+    def create_user(self, name, identifier, email, date_of_birth, bio, image, password=None):
         if not name:
             raise ValueError('must have user name')
         if not identifier:
@@ -19,19 +19,21 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             date_of_birth=date_of_birth,
             bio=bio,
+            image=image,
         )
         
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, name, identifier, email, date_of_birth, bio, password):
+    def create_superuser(self, name, identifier, email, date_of_birth, bio, image, password):
         user = self.create_user(
             name=name,
             identifier=identifier,
             email=self.normalize_email(email),
             date_of_birth=date_of_birth,
             bio=bio,
+            image=image,
             password=password
         )
         user.is_superuser = True
@@ -45,13 +47,14 @@ class User(AbstractBaseUser):
   email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
   date_of_birth = models.DateField()
   bio = models.TextField(blank=True)
+  image = models.ImageField(blank=True, null=True, upload_to='images/')
   is_active = models.BooleanField(default=True)
   is_superuser = models.BooleanField(default=False)
   
   objects = UserManager()
   
   USERNAME_FIELD = 'identifier'
-  REQUIRED_FIELDS = ['name', 'email', 'date_of_birth', 'bio']
+  REQUIRED_FIELDS = ['name', 'email', 'date_of_birth', 'bio', 'image']
   
   def __str__(self):
     return self.identifier
@@ -78,9 +81,6 @@ class Product(models.Model):
   def __str__(self):
     return self.name
 
-class P_record(models.Model):
-  merchant_uid = models.BigAutoField(primary_key=True)
-  
 class BuyList(models.Model):
   product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
   

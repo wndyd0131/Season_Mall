@@ -47,6 +47,10 @@
           <input type="text" class="form-control" name="bio" id="bio"
           value="{{ form.bio.value|default_if_none:'' }}">
         </div>
+        <div>
+          <label for="image" class="form-label">프로필 사진</label>
+          <input type="file" name="image" id="imageFileOpenInput" accept="image/*"> <!--name 속성은 submit했을 때 전달되는 이름-->
+        </div>
         <button type="submit" class="btn btn-primary">생성하기</button>
     </form>
 </div>

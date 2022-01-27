@@ -24,6 +24,11 @@
         <img src="/media/uploads/no_image.png" style="margin-top:200px;" width=400 height=400/>
         {% endif %} {% endcomment %}
         <div class="prdt_info">
+          {% if user.image %}
+          <p style="margin-top:30px; text-align:left;">판매자: <img src="{{ user.image.url }}" width=50 height=50 style="border-radius:100%;"/> {{ product.author }}</p>
+          {% else %}
+          <p style="margin-top:30px; text-align:left;">판매자: <img src="/media/uploads/SM.png" width=50 height=50 style="border-radius:100%;"/> {{ product.author }}</p>
+          {% endif %}
           <div class="info">
             <h2 id="p_name" data-name="{{ product.name }}">{{ product.name }}</h2>
             <br>
@@ -32,7 +37,6 @@
             {% else %}
             <img src="/media/uploads/no_image.png" width=300 height=300 style="border-radius:10%"/>
             {% endif %}
-            <p style="margin-top:30px;">판매자: {{ product.author }}</p>
             <p style="margin-top:50px;">내용: {{ product.content }}</p>
             <br>
             <h4 style="margin-top:50px;" id="p_price" data-price="{{ product.price }}">가격: {{ product.price }}원</h4>

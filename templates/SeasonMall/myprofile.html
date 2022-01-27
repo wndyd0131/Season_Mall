@@ -5,7 +5,11 @@
       <h1>내 프로필</h1>
     </div>
     <div class="profile_text">
-      <img src="#" width=250 height=250 style="margin-bottom:30px;">
+      {% if me.image %}
+      <img src="{{ me.image.url }}" width=250 height=250 style="margin-bottom:30px; border-radius:100%;">
+      {% else %}
+      <img src="/media/uploads/SM.png" width=250 height=250 style="margin-bottom:30px; border-radius:100%;">
+      {% endif %}
       <h3>아이디: {{ me.identifier }}</h3><br>
       <h3>이름: {{ me.name }}</h3><br>
       <h3>이메일: {{ me.email }}</h3><br>
