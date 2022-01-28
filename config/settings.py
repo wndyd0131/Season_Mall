@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 import pymysql
 pymysql.install_as_MySQLdb()
 import os
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-60h2eb$$lh7ge*+u6j6^nrv03e@11po&vfcxfr^jr*ah%4tc01'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,20 +86,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'seasonmall_db',
-        'USER': 'root',
-        'PASSWORD': '@rjy153101',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': config("DATABASE_NAME"),
+        'USER': config("DATABASE_USERNAME"),
+        'PASSWORD': config("DATABASE_PASSWORD"),
+        'HOST': config("DATABASE_HOST"),
+        'PORT': config("DATABASE_PORT", cast = int),
     },
-    'new' : {
-      'ENGINE': 'django.db.backends.mysql',
-      'NAME' : 'S_MALLdb',
-      'USER' : 'root',
-      'PASSWORD' : '@rjy153101',
-      'HOST' : 'localhost',
-      'PORT' : '3306',
-    }
 }
 
 
@@ -156,8 +149,8 @@ MEDIA_URL = '/media/' #SeasonMall/media/파일경로로 나타내기
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #MEDIA_ROOT에 파일이 저장됨 (upload_to 경로가 없으면 MEDIA_ROOT의 경로에 저장됨)
 
 #결제를 위해 필요 (stripe 사용)
-STRIPE_PUBLIC_KEY = 'pk_test_51KDr9GLvtI4Ww06EqhkEjq8ppEdMNRYhbKzXTCVzAXA1XXoPeFsSw06IM1HHYUDE4j2R2xyuxFhSj2Khn5sd0lv3001M91j9Hr'
-STRIPE_SECRET_KEY = 'sk_test_51KDr9GLvtI4Ww06ElzpTUvOjek0eOlNjfOwUExkp3TvOQymt4kcaxheQ4iVZHEXOT73tCx2OfEFItRZlPJLQL5XQ00xlyQn2C6'
+STRIPE_PUBLIC_KEY = config("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 
 #Django Session Timeout Code
 SESSION_COOKIE_AGE = 2400

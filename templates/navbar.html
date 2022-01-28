@@ -22,8 +22,9 @@
             <a class="nav-link" href="{% url 'common:logout' %}" style="width:150px;margin-left:10px; margin-top:10px;">{{ user.name }}<br>(로그아웃)</a>
           </div>
           {% else %}
-          <div class="login_button">
+          <div class="login_button" style="display:flex;">
             <a class="nav-link" href="{% url 'common:login' %}" style="margin-left:150px; margin-top: 20px;">로그인</a>
+            <a class="nav-link" href="{% url 'common:signup' %}" style="margin-top:20px;">회원가입</a>
           </div>
           {% endif %}
         </li>

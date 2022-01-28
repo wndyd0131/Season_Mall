@@ -37,7 +37,13 @@
             {% else %}
             <img src="/media/uploads/no_image.png" width=300 height=300 style="border-radius:10%"/>
             {% endif %}
-            <p style="margin-top:50px;">내용: {{ product.content }}</p>
+            <br>
+            <br>
+              <div class="custom_container">
+              <span class="author_content">
+              {{ product.content }}
+              </span>
+              </div>
             <br>
             <h4 style="margin-top:50px;" id="p_price" data-price="{{ product.price }}">가격: {{ product.price }}원</h4>
             <br>
@@ -49,6 +55,8 @@
               <i class="bi bi-hand-thumbs-up"></i>
               <br>좋아요 {{ product.like_count }}개
             </a>
+            <br>
+            <br>
             
           </div>
         </div>

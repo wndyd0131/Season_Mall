@@ -91,23 +91,23 @@ a:hover{
 }
 .createBox{
   position: absolute;
-  border: 2px solid rgb(67, 148, 84);
+  border: 2px solid rgb(252, 122, 0);
   width: 250px;
   height: 170px;
   margin-left: 35%;
   border-radius: 10%;
-  background-color: rgb(67, 148, 84);
+  background-color: rgb(252, 122, 0);
   text-align: center;
   transition: transform 300ms;
 }
 .modifyBox{
   position: absolute;
-  border: 2px solid rgb(218, 117, 117);
+  border: 2px solid rgb(110, 44, 0);
   width: 250px;
   height: 170px;
   margin-left: 55%;
   border-radius: 10%;
-  background-color:rgb(218, 117, 117);
+  background-color:rgb(110, 44, 0);
   text-align:center;
   transition: 300ms;
 }
@@ -181,4 +181,29 @@ a:hover{
   border: 1px solid black;
   width: 600px;
   height: 260px;
+}
+.custom_container{
+  background-color: #ffffff;
+  width: 400px;
+  margin: auto;
+  min-height: 250px;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow:  0 20px 25px rgba(0,0,0,0.25);
+}
+.custom_container *{
+  font-family: "Poppins",sans-serif;
+  font-size: 16px;
+}
+.author_content{
+  padding: 10px;
+  text-align:left;
+  display: block;
+  width: 100%;
+  min-height: 230px;
+  resize: none;
+  color: #202020;
+  border: 2px solid orange;
+  border-radius: 5px;
+  outline:none;
 }
