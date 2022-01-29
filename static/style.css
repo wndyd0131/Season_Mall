@@ -151,6 +151,7 @@ a:hover{
 
 .profile_box{
   border: 3px solid beige;
+  background-color:#ffffff;
   width: 1700px;
   height: 1000px;
   margin-top: 30px;
@@ -166,6 +167,7 @@ a:hover{
   margin-left: auto;
   margin-right:auto;
   margin-bottom:40px;
+  background-color: beige;
 }
 .profile_title{
   margin-top: 30px;
@@ -183,7 +185,7 @@ a:hover{
   height: 260px;
 }
 .custom_container{
-  background-color: #ffffff;
+  background-color:#202020;
   width: 400px;
   margin: auto;
   min-height: 250px;
@@ -195,6 +197,8 @@ a:hover{
   font-family: "Poppins",sans-serif;
   font-size: 16px;
 }
+
+
 .author_content{
   padding: 10px;
   text-align:left;
@@ -202,7 +206,7 @@ a:hover{
   width: 100%;
   min-height: 230px;
   resize: none;
-  color: #202020;
+  color:white;
   border: 2px solid orange;
   border-radius: 5px;
   outline:none;

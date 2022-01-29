@@ -15,9 +15,10 @@
       <h3>이메일: {{ me.email }}</h3><br>
       <h3>생일: {{ me.date_of_birth }}</h3><br>
       <h4>하고 싶은 말:</h4>
-      <div class="profile_bio">
-        <p style="font-size: 18px; margin-left: 5px; margin-top: 5px;">{{ me.bio }}</p>
+      <div class="custom_container" style="margin-right:100%;">
+        <p style="font-size: 18px; margin-left: 5px; margin-top: 5px; color:white;">{{ me.bio }}</p>
       </div>
     </div>
   </div>
+  <a href="{% url 'SeasonMall:UserDeletion' %}"><button type="button" class="btn btn-danger" style="margin-left:110px; margin-bottom:40px;">회원 탈퇴</button></a>
 {% endblock %}

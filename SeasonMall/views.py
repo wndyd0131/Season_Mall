@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.utils import timezone
 from .forms import AdditionForm
 from .models import Product
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse
@@ -10,6 +10,7 @@ import stripe
 from django.conf import settings
 from django.db.models import Q
 import json
+
 
 User = get_user_model()
 # Create your views here.
@@ -109,3 +110,14 @@ def payment(request, product_id):
   product = get_object_or_404(Product, pk=product_id)
   context = {'product':product}
   return render(request, 'SeasonMall/payment.html', context)
+
+
+def UserDeletion(request):
+  me = request.user
+  if request.method == 'POST':
+    me.delete()
+    logout(request)
+    return redirect('SeasonMall:index')
+  else:
+    context = {'me':me}
+  return render(request, 'SeasonMall/UserDeletion.html', context)

@@ -8,11 +8,12 @@
 
 
 ## Description  
-+ 사용 기술
-  - Python, Django
-  - MySQL
-  - Bootstrap, Jquery
-  - pythonanywhere
++ 개발 환경
+  - Language: Python
+  - Framework: Django
+  - DB: MySQL
+  - front-end: HTML, CSS, JavaScript, Bootstrap, Jquery
+  - Server: PythonAnywhere
 ## Views  
 +
 ## CRUD  

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>탈퇴 페이지</title>
+</head>
+  <form method="post">
+    {% csrf_token %}
+    <div class= "alert alert-danger">
+      정말 탈퇴하시겠습니까?
+    </div>
+    <a href="{% url 'SeasonMall:myprofile' %}" class="btn btn-primary">취소</a>
+    <input type="submit" value="탈퇴하겠습니다." class="btn btn-danger"/>
+  </form>
+  {% endblock %}
